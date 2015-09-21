@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="shortcut icon" href="images/Coffee_Cup_Icon_Art.ico" type="image/x-icon">
+
+    <style>
+
+
+  .col {
+  width: 32%;
+  float: left;
+  height: 500px;
+  padding: 1%;
+  display: block;
+  margin: 15px auto;
+  cursor: pointer;
+  }
+
+header, footer {
+  text-align: center;
+  background-color: #C7BCA4;
+  width: 100%;
+}
+
+header {
+  height: 10%;
+}
+
+.navi {
+  display: inline;
+  margin: 0 0.5%;
+
+}
+
+nav {
+ margin: 0:;
+ padding: 1px;
+}
+
+ a {
+  color: black;
+  text-decoration: none;
+ }
+
+li {
+  display: inline-block;
+}
+
+.navi {
+  padding-left: 1.5%;
+  padding-right: 1.5%;
+}
+
+.menue {
+  width: 30px;
+
+}
+
+
+
+
+      body{
+        background-color:black;
+
+        }
+      
+      a {
+        color: white;
+        text-decoration: none;
+        }
+
+      .lightbox {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+      }
+
+      .lightbox img {
+        position: absolute;
+        width:50%;
+        top: 50%;
+        left: 50%;
+        margin-top: -320px;
+        margin-left: -320px;
+      }
+
+      .lightbox a {
+        position: absolute;
+        top: 25px;
+        right: 25px;
+        font-size: 20px;
+        text-decoration: none;
+        text-transform: uppercase;
+        color: brown;
+        cursor: pointer;
+      }
+
+      .overlay {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        background-color: white;
+        opacity: 0.5;
+      }
+
+
+</style>
+ </head>
+
+ 	<body>
+
+    <header>
+ <nav>
+          <ul>
+            <li class="navi"><a href="index.html">Home</a></li>
+            <li><img class="menue" src="images/navig.jpg"></li>
+            <li class="navi"><a href="coffeeAbout.html">About us</a></li>
+            <li><img class="menue" src="images/navig.jpg"></li>
+            <li class="navi"><a href="OurCoffee.html">Our coffee</a></li>
+            <li><img class="menue" src="images/navig.jpg"></li>
+            <li class="navi"><a href="delivery.html">How we deliver</a></li>
+          </ul>
+        </nav>
+      </header>
+
+
+      
+
+ 	<div class="row">
+    <img class="col" src="haitiancoffee.jpg" data-caption="xyz">
+    <img class="col" src="Brazilblend.jpg">
+    <img class="col" src="colombiaflag.jpg">   
+  </div>
+
+
+
+
+
+    <div class="lightbox">
+      <div class="overlay"></div>
+      <a class="close">Close</a>
+      <img class="enlarged-image" src="">
+      <div class="caption"></div>
+    </div>
+
+    <script>
+      $(document).ready(function() {
+        $("body").on("contextmenu", ".enlarged-image", function() {
+          return false;
+        });
+
+        $(".col").click(function() {
+          $("body").css("overflow", "hidden");
+          $(".lightbox .enlarged-image").attr("src", $(this).attr("src"));
+          var caption = $(this).attr("data-caption");
+          $(".caption").text(caption);
+          $(".lightbox").show();
+        });
+
+        $(".overlay, .close").click(function() {
+          $("body").css("overflow", "");
+          $(".lightbox .enlarged-image").attr("src", "");
+          $(".caption").text("");
+          $(".lightbox").hide();
+        });
+      });
+    </script>
+
+ 	</body>
+</html>
